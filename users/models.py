@@ -4,8 +4,8 @@ from django.db.models.query import DateField
 from django.core.validators import RegexValidator
 
 # Create your models here.
-class Usertemporary(models.Model):  #временный user
-    user_id = models.IntegerField() #unneccesary
+class UserTemporary(models.Model):  #временный user
+    # user_id = models.IntegerField() #unneccesary
     username = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
@@ -19,3 +19,6 @@ class Usertemporary(models.Model):  #временный user
     address = models.CharField(max_length=100)
     user_type = models.CharField(max_length=100)
     join_date = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.username
