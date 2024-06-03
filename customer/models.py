@@ -1,8 +1,10 @@
 from django.db import models
 from django.core.validators import RegexValidator
+
+from users.models import UserTemporary
 # Create your models here.
 class Customer(models.Model):
-    name = models.CharField(max_length=25)
+    name = models.OneToOneField(UserTemporary, on_delete=models.CASCADE)
     address = models.CharField(max_length=40)
     phone_regex = RegexValidator(
            regex=r'^\+?1?\d{9,11}$',

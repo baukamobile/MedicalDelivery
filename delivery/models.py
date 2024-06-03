@@ -3,9 +3,11 @@ from orders.models import Order
 # Create your models here.
 from django.core.validators import RegexValidator
 
+from users.models import UserTemporary
+
 class DeliveryPerson(models.Model):
     # Add fields relevant to a delivery person
-    name = models.CharField(max_length=100)
+    name = models.OneToOneField(UserTemporary, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=15)
     email = models.EmailField(unique=True)
     # Add any other fields you need, such as address, profile picture, etc.

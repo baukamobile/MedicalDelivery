@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'delivery',
     'customer',
     'rest_framework',
+    'client',
 ]
 
 MIDDLEWARE = [
